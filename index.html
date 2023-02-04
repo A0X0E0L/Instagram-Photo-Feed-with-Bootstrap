@@ -5,48 +5,190 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/3ea353913d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <title>Instagram Photo Feed-Axel Olivera</title>
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid justify-content-between">
+            <a class="navbar-brand col" href="#"><i class="bi bi-instagram mr-5"></i> <span class="px-1">Instagram</span></a>
             <div>
-                <i class="fa fa-instagram"></i>
-                <a class="navbar-brand" href="#">Instagram</a>
-            </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-end">
+                        <div class="d-flex align-items-end">
+                            <li class="nav-item">
+                                <button class="btn btn-outline-success" type="submit">Create a new post</button>
 
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <!-- MODAL -->
+                                <div class="modal" id="createNewPost" tabindex="-1" role="dialog" aria-labelledby="createNewPostTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content d-flex flex-column mb-3">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title d-flex p-2">Create a new post</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <h6 class="modal-title d-flex p-2">Caption</h6>
+                                                <p>Add the caption of your post here</p>
+                                            </div>
+                                            <div class="d-flex justify-content-start">
+                                                <i class="btn bi bi-camera border border-dark-rounded"></i>
+                                                <i class="btn bi bi-geo-alt-fill border border-dark-rounded mx-2"></i>
+                                            </div>
 
+                                            <div class="modal-footer d-flex justify-content-end">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="mx-2 btn btn-success">Publish</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
+                        </li>
 
-                            <hr class="dropdown-divider">
-                    </li>
-                </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                </li>
-                </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+                        <li class="nav-item dropdown">
+                            <button class="nav-link dropdown-toggle btn btn-secondary mx-3" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-gear-fill text-white"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                                <li><a class="dropdown-item" href="#">Accesiblity</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item text-danger" href="#">Logout</a></li>
+                            </ul>
+                        </li>
+
+                </div>
             </div>
         </div>
+        </div>
     </nav>
+    <!-- botones -->
+    <div class="container-fluid">
+
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Home</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Profile</button>
+            </li>
+
+        </ul>
+        <div class="container justify-content-center">
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+                    <div>
+                        <div class="row">
+                            <div class="col-lg-4 mb-2">
+                                <img src="https://picsum.photos/200/300?random=1" class="card-img-top" alt="...">
+                            </div>
+                            <div class="col-lg-4 mb-2">
+                                <img src="https://coloreardibujosgratis.com/dibujo/programas-de-television/colorear-breaking-bad-151298.jpg" class="card-img-top" alt="...">
+                            </div>
+                            <div class="col-lg-4 mb-2">
+                                <img src="https://images.unsplash.com/photo-1675416833313-44fc7879987a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="...">
+                            </div>
+                            <div class="col-lg-4 mb-2">
+                                <img src="https://coloreardibujosgratis.com/dibujo/programas-de-television/colorear-breaking-bad-151298.jpg" class="card-img-top" alt="...">
+                            </div>
+                            <div class="col-lg-4 mb-2">
+                                <img src="https://picsum.photos/200/300?random=1" class="card-img-top" alt="...">
+                            </div>
+                            <div class="col-lg-4 mb-2">
+                                <img src="https://coloreardibujosgratis.com/dibujo/programas-de-television/colorear-breaking-bad-151298.jpg" class="card-img-top" alt="...">
+                            </div>
+                            <div class="col-lg-4 mb-2">
+                                <img src="https://picsum.photos/200/300?random=1" class="card-img-top" alt="...">
+                            </div>
+                            <div class="col-lg-4 mb-2">
+                                <img src="https://coloreardibujosgratis.com/dibujo/programas-de-television/colorear-breaking-bad-151298.jpg" class="card-img-top" alt="...">
+                            </div>
+                            <div class="col-lg-4 mb-2">
+                                <img src="https://picsum.photos/200/300?random=1" class="card-img-top" alt="...">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+
+
+                    <!-- post1 -->
+
+                    <div class="card mt-5 w-50 p-3">
+                        <div class="card-header">
+                            <div class="text-align-float">
+                                <h3>Post 1 <span class="float-end text-mute">01/09</span></h3>
+
+                            </div>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1675130393258-3b9f727319b0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0M3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">❤️ 0,5 likes</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et facilis quisquam magni nesciunt doloribus ab fugiat necessitatibus architecto voluptatem, rem blanditiis delectus, sequi itaque laudantium in incidunt officia id reprehenderit.</p>
+                        </div>
+                    </div>
+
+                    <!-- post2 -->
+                    <div class="card mt-5 w-50 p-3">
+                        <div class="card-header">
+                            <div class="text-align-float">
+                                <h3>Post 2 <span class="float-end text-mute">02/09</span></h3>
+                            </div>
+                        </div>
+                        <img src="https://picsum.photos/200/300?random=1" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">❤️100000000000 likes</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde doloribus consequatur neque obcaecati suscipit voluptatem reprehenderit rem harum, alias et minus ut blanditiis dolor voluptates beatae, modi nihil sunt.</p>
+                        </div>
+
+                    </div>
+                    <!-- post3 -->
+                    <div class="card mt-5 w-50 p-3">
+                        <div class="card-header">
+                            <div class="text-align-float">
+                                <h3>Post 3 <span class="float-end text-mute">03/09</span></h3>
+
+                            </div>
+                        </div>
+                        <img src="https://picsum.photos/200/300?random=1" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">❤️321 likes</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quam nobis ab, tenetur iure quibusdam quae expedita harum quis consequatur sit maxime, eaque repellendus asperiores, illo quo. Cumque, similique ipsa.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+
+
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="container-fluid">
+                        <div>
+                            <i class="fa fa-instagram"></i>
+
+                        </div>
+                    </div>
+                </nav>
 
 </body>
 
