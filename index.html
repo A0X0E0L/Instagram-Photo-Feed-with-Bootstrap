@@ -25,7 +25,7 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-end">
                         <div class="d-flex align-items-end">
                             <li class="nav-item">
-                                <button class="btn btn-outline-success" type="submit">Create a new post</button>
+                                <button class="btn btn-outline-success" type="button" data-bs-toggle="modal" data-bs-target="#createNewPost">Create a new post</button>
 
                                 <!-- MODAL -->
                                 <div class="modal" id="createNewPost" tabindex="-1" role="dialog" aria-labelledby="createNewPostTitle" aria-hidden="true">
@@ -37,7 +37,8 @@
                                             </div>
                                             <div class="modal-body">
                                                 <h6 class="modal-title d-flex p-2">Caption</h6>
-                                                <p>Add the caption of your post here</p>
+
+                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Add the caption of your post here"></textarea>
                                             </div>
                                             <div class="d-flex justify-content-start">
                                                 <i class="btn bi bi-camera border border-dark-rounded"></i>
